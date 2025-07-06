@@ -70,9 +70,18 @@ def run(output_dir: Path):
     #     batch_format=BatchFormat.ARROW,
     #     batch_size=5,  # adjust to your system's size
     # )
-    input_config = JSONShardConfig(
-        input_file='data/csqa/test.json'
+    
+    input_config = HFInputConfig(
+        input_file="openai/gsm8k",
+        data_dir="20231101.en",
+        # split="train[0:200]",  # we are only taking a small sample for the toy example
+        num_shards=5,  # as we have a small sample, we don't need many shards, you should increase this for larger datasets
+        batch_format=BatchFormat.ARROW,
+        batch_size=5,  # adjust to your system's size
     )
+    # input_config = JSONShardConfig(
+    #     input_file='data/csqa/test.json'
+    # )
     # setup the output to write to parquet
     output_config = ParquetOutputConfig(
         output_dir,

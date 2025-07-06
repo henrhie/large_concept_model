@@ -22,3 +22,7 @@ sudo apt update
 ```bash
 uv pip install fairseq2==v0.3.0rc1 --pre --extra-index-url  https://fair.pkg.atmeta.com/fairseq2/whl/rc/pt2.5.1/cu121 --upgrade
 ```
+
+```bash
+sudo apt install libsndfile1
+```
